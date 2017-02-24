@@ -6,36 +6,49 @@
           href="../css/jquery.mobile-1.4.5.min.css">
     <script src="../js/jquery.min.js"></script>
     <script src="../js/jquery.mobile-1.4.5.min.js"></script>
+    <script>
+        $("#getdata").click(function(){
+var xmlhttp;
+	if (window.XMLHttpRequest)
+	{
+		<!--//  IE7+, Firefox, Chrome, Opera, Safari 浏览器执行代码-->
+		xmlhttp=new XMLHttpRequest();
+	}
+	else
+	{
+		<!--// IE6, IE5 浏览器执行代码-->
+		xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+	}
+	xmlhttp.onreadystatechange=function()
+	{
+		if (xmlhttp.readyState==4 && xmlhttp.status==200)
+		{
+			document.getElementById("myDiv").innerHTML=xmlhttp.responseText;
+		}
+	}
+	xmlhttp.open("GET","http://www.baidu.com",false);
+	xmlhttp.send();
+        });
+
+
+
+
+    </script>
 </head>
 <body>
-
-<div data-role="page" id="pageone" data-theme="a">
+<div data-role="page">
     <div data-role="header">
-        <h1>页面头部</h1>
+        <h3>标题栏</h3>
     </div>
-
     <div data-role="main" class="ui-content">
-        <p>一些文本..</p>
-        <a href="#">标准文本链接</a>
-        <a href="#" class="ui-btn">链接按钮</a>
-        <p>列表:</p>
-        <ul data-role="listview" data-autodividers="true" data-inset="true">
-            <li><a href="#">Adele</a></li>
-            <li><a href="#">Billy</a></li>
-        </ul>
-        <label for="fullname">输入框:</label>
-        <input type="text" name="fullname" id="fullname" placeholder="名字..">
-        <label for="switch">切换开关:</label>
-        <select name="switch" id="switch" data-role="slider">
-            <option value="on">On</option>
-            <option value="off" selected>Off</option>
-        </select>
+        <input type="button" value="请求一下数据" id="getdata">
+        <div id="myDiv"></div>
     </div>
-
     <div data-role="footer">
-        <h1>页面底部</h1>
+        <h3>最底部</h3>
     </div>
 </div>
+
 
 </body>
 </html>

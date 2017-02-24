@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet"
+          href="../css/jquery.mobile-1.4.5.min.css">
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/jquery.mobile-1.4.5.min.js"></script>
+    <script>
+        function nextPage(id){
+              window.location.href=id;
+        }
+
+
+
+
+
+
+    </script>
+</head>
+<body>
+
+<div data-role="page" id="pageone">
+    <div data-role="header">
+        <h1>页面标题</h1>
+    </div>
+    <div data-role="content">
+        <p>页面内容</p>
+    </div>
+    <div data-role="main" class="ui-content">
+        <p>点击连接查看淡入效果，页面从左往右</p>
+        <a href="#pagetwo" data-transition="slideup">淡入到第二个页面</a>
+    </div>
+    <div data-role="main" class="ui-content">
+        <a href="#mypup" data-rel="popup" class="ui-btn ui-btn-inline ui-corner-all">显示简单弹窗</a>
+        <a href="#myPopup" data-rel="popup" class="ui-btn ui-btn-inline ui-corner-all">显示弹窗可以关闭</a>
+    </div>
+    <div data-role="popup" id="myPopup" class="ui-content">
+        <a href="#" data-rel="back"
+           class="ui-btn ui-corner-all ui-shadow ui-btn ui-icon-delete ui-btn-icon-notext ui-btn-right">关闭</a>
+        <p>我在右上角有个关闭按钮</p>
+        <p><b>提示:</b> 你也可以通过点击弹窗外的区域来关闭弹窗。</p>
+    </div>
+
+    <div data-role="main" class="ui-content">
+        <a href="#mypanel" class="ui-btn ui-btn-line">打开面板</a>
+        <button id="file:///android_asset/page/main.html" onclick="nextPage(this.id)">下一页1</button>
+        <button id="file:///android_asset/page/one.html"  onclick="nextPage(this.id)">下一页2</button>
+    </div>
+    <div data-role="panel" data-dismissible="true" data-swipe-close="true" data-display="push"
+         id="mypanel">
+        <h2>面板头部</h2>
+        <p>你可以使用按下 Esc 键、点击面板外部区域、通过滑动或点击下面按钮来关闭面板：</p>
+        <a href="#pageone" data-rel="close"
+           class="ui-btn ui-btn-inline ui-shadow ui-corner-all ui-btn-a ui-icon-delete ui-btn-icon-left">关闭面板</a>
+    </div>
+
+    <div data-role="popup" id="mypup">
+        <p>这是一个简单的弹窗</p>
+    </div>
+    <div data-role="footer">
+        <h1>页面底部内容</h1>
+    </div>
+</div>
+
+
+<div data-role="page" id="pagetwo">
+    <div data-role="header">
+        <h1>欢迎来到我的主页</h1>
+    </div>
+
+    <div data-role="main" class="ui-content">
+        <p>点击链接查看相反方向的淡入效果 (页面从左至右淡入)。</p>
+        <a href="#pageone" data-transition="slide" data-direction="reverse">淡入第一个页面(reversed)</a>
+    </div>
+    <div data-role="footer">
+        <h1>底部文本</h1>
+    </div>
+</div>
+</body>
+</html>

@@ -47,7 +47,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         initdata();
     }
-
     private void initdata() {
         //-------------1、基础用法-------------------------
         Observable<String> observable = Observable.create(new ObservableOnSubscribe<String>() {
@@ -60,9 +59,7 @@ public class MainActivity extends AppCompatActivity {
         Observer<String> observer = new Observer<String>() {
             @Override
             public void onSubscribe(Disposable d) {
-
             }
-
             @Override
             public void onNext(String value) {
                 Log.i("TAG", "观察者观察到-------" + value);

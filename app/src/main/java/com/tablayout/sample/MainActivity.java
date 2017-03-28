@@ -78,13 +78,13 @@ public class MainActivity extends AppCompatActivity {
         imgicon.setImageResource(imgs[position]);
         txtTitle.setText(titles[position]);
         //这里可以不写点击事件
-        view.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startPropertyAnim(imgicon);//实现切换动画
-                viewpager.setCurrentItem(position);
-            }
-        });
+//        view.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                startPropertyAnim(imgicon);//实现切换动画
+//                viewpager.setCurrentItem(position);
+//            }
+//        });
         return view;
     }
 

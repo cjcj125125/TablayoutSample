@@ -1,1 +1,1 @@
-include ':app', ':rxsample', ':h5sample'
+include ':app', ':rxsample', ':h5sample', ':diyview'

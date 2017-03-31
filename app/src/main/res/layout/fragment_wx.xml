@@ -5,9 +5,11 @@
     tools:context="com.tablayout.fragmets.WxFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <ListView
+        android:id="@+id/listView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="微信_fragment" />
+        android:layout_height="wrap_content"
+        android:fastScrollEnabled="false"
+        ></ListView>
 
 </FrameLayout>

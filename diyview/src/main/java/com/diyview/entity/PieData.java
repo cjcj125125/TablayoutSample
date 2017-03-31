@@ -23,7 +23,6 @@ public class PieData {
         this.value=value;
     }
 
-
     public String getName() {
         return name;
     }

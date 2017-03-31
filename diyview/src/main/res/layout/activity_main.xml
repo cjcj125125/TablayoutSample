@@ -5,10 +5,13 @@
     android:layout_height="match_parent"
     tools:context="com.diyview.ui.MainActivity">
 
-    <com.diyview.diyview.PieView
-        android:id="@+id/pieView"
+    <!--<com.diyview.diyview.PieView-->
+        <!--android:id="@+id/pieView"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--/>-->
+
+    <com.diyview.diyview.LineView
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        />
+        android:layout_height="wrap_content" />
 </RelativeLayout><!--</android.support.constraint.ConstraintLayout>-->

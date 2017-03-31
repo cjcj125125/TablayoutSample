@@ -11,24 +11,24 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
-    @butterknife.BindView(R.id.pieView)
-    PieView pieView;
+//    @butterknife.BindView(R.id.pieView)
+//    PieView pieView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        butterknife.ButterKnife.bind(this);
-        initData();
+      //  butterknife.ButterKnife.bind(this);
+        //initData();
     }
 
     private void initData() {
-        List<PieData> pieDataList = new ArrayList<>();
-        for (int i = 0; i <10; i++) {
-            PieData pieData = new PieData("测试" + i, 50 + i);
-            pieDataList.add(pieData);
-        }
-        pieView.setData(pieDataList);
+//        List<PieData> pieDataList = new ArrayList<>();
+//        for (int i = 0; i <10; i++) {
+//            PieData pieData = new PieData("测试" + i, 50 + i);
+//            pieDataList.add(pieData);
+//        }
+//        pieView.setData(pieDataList);
     }
 
 }

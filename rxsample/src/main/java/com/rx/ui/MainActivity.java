@@ -48,6 +48,7 @@ public class MainActivity extends AppCompatActivity {
         initdata();
     }
     private void initdata() {
+
         //-------------1、基础用法-------------------------
         Observable<String> observable = Observable.create(new ObservableOnSubscribe<String>() {
             @Override
@@ -147,6 +148,19 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+        Observable.just(1,2,3).elementAt(2).subscribe(new Consumer<Integer>() {
+            @Override
+            public void accept(Integer integer) throws Exception {
+                Log.i("elementAt","打印-----"+integer);
+            }
+        });
+Observable.create(new ObservableOnSubscribe<String>() {
+    @Override
+    public void subscribe(ObservableEmitter<String> e) throws Exception {
+
+    }
+});
+
     }
 
     //------------------------------华丽的分割线---------------------------------------------
@@ -200,7 +214,6 @@ Flowable<String>flowable=Flowable.create(new FlowableOnSubscribe<String>() {
 //
 //    }
 //};
-
 
 
 }

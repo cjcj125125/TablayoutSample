@@ -2,11 +2,12 @@ package com.diyview.diyview;
 
 import android.content.Context;
 import android.graphics.Canvas;
+import android.graphics.Color;
 import android.graphics.Paint;
-import android.graphics.PointF;
 import android.graphics.RectF;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.View;
 
 import com.diyview.entity.PieData;
@@ -29,9 +30,9 @@ public class PieView extends View {
 
 
     //文字色块部分
-    private PointF mStartPoint = new PointF(20, 20);
-    private PointF mCurrentPoint = new PointF(mStartPoint.x, mStartPoint.y);
-    private float mColorRectSideLength = 20;
+    // private PointF mStartPoint = new PointF(20, 20);
+//    private PointF mCurrentPoint = new PointF(mStartPoint.x, mStartPoint.y);
+//    private float mColorRectSideLength = 20;
     private float mTextInterval = 10;
     private float mRowMaxLength;
 
@@ -50,6 +51,8 @@ public class PieView extends View {
     @Override
     protected void onSizeChanged(int w, int h, int oldw, int oldh) {
         super.onSizeChanged(w, h, oldw, oldh);
+        Log.i("TAG","宽度----"+w);
+        Log.i("TAG","高度----"+h);//得到的是控件的宽高
         mWidth = w;
         mHeight = h;
     }
@@ -59,6 +62,22 @@ public class PieView extends View {
         super.onDraw(canvas);
         if (pieDataList == null)
             return;
+        //  canvas.drawRoundRect(100, 100, 800, 400, 30, 30, mPaint);
+        RectF rectRound = new RectF(200, 200, 400, 400);
+        // canvas.drawRoundRect(rectRound, 100, 100, mPaint);
+//        mPaint.setColor(Color.RED);
+//        canvas.drawRect(rectRound,mPaint);
+//        canvas.drawLine(200,200,600,200,mPaint);
+//        mPaint.setColor(Color.BLACK);
+//        canvas.drawLine(400,400,600,200,mPaint);
+        canvas.save();//储存状态
+        canvas.translate(100,100);
+        mPaint.setStyle(Paint.Style.FILL_AND_STROKE);
+        mPaint.setColor(Color.BLACK);
+        canvas.drawCircle(0, 0, 100, mPaint);
+       canvas.restore();//恢复状态
+
+        //-----------------------------------------
         float currentStartAngle = mStartAngle;//当前其实角度
         canvas.translate(mWidth / 2, mHeight / 2);//画布坐标原点移动到中心位置
         float r = (float) (Math.min(mWidth, mHeight) / 2 * 0.8);//饼状图半径
@@ -67,10 +86,10 @@ public class PieView extends View {
             mPaint.setColor(pieData.getColor());
             canvas.drawArc(rectF, currentStartAngle, pieData.getAngle(), true, mPaint);
             currentStartAngle += pieData.getAngle();
-            canvas.save();
-            canvas.translate(-mWidth / 2, -mHeight / 2);
-            RectF colorRectF = new RectF(mCurrentPoint.x, mCurrentPoint.y, mCurrentPoint.x + mColorRectSideLength, mCurrentPoint.y + mColorRectSideLength);
-            canvas.restore();
+            //   canvas.save();
+            //canvas.translate(-mWidth / 2, -mHeight / 2);
+            //  RectF colorRectF = new RectF(mCurrentPoint.x, mCurrentPoint.y, mCurrentPoint.x + mColorRectSideLength, mCurrentPoint.y + mColorRectSideLength);
+            //  canvas.restore();
         }
     }
 
